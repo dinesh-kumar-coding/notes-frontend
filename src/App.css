@@ -1,7 +1,6 @@
 /* ============================================================
    NOTES APP — Vibe: WARM & COZY (notebook / paper)
-   Soft cream paper, warm browns, a calm handwritten feel.
-   Replace your notes app frontend's App.css with this file.
+   Soft cream paper, warm browns, a calm handwritten feel
    ============================================================ */
 
 :root {
@@ -66,7 +65,6 @@ h3 {
 
 /* ============================================================
    AUTH PAGE (login / signup) — a centered paper card
-   Add className="auth-card" to the <form> in AuthPage.
    ============================================================ */
 .auth-card {
   max-width: 380px;
@@ -128,7 +126,6 @@ button {
 button:hover { background: var(--accent-dark); }
 button:active { transform: translateY(1px); }
 
-/* A secondary / text-style button (for toggle + cancel) — add className="btn-text" */
 .btn-text {
   background: transparent;
   color: var(--accent);
@@ -138,7 +135,6 @@ button:active { transform: translateY(1px); }
 }
 .btn-text:hover { background: transparent; color: var(--accent-dark); }
 
-/* Error message — add className="error-msg" to the red <p> */
 .error-msg {
   color: var(--danger);
   background: var(--danger-soft);
@@ -151,7 +147,6 @@ button:active { transform: translateY(1px); }
 /* ============================================================
    NOTES PAGE
    ============================================================ */
-/* Header bar — wrap the <header> content; it has h1 + logout */
 header {
   display: flex;
   align-items: center;
@@ -161,7 +156,6 @@ header {
   border-bottom: 2px solid var(--line);
 }
 
-/* The "Add note" form — add className="note-form" to the <form> in NoteForm */
 .note-form {
   background: var(--card);
   border: 1px solid var(--line);
@@ -192,7 +186,6 @@ li p { color: var(--ink-soft); margin-bottom: 12px; }
 /* Buttons inside a note (Edit / Delete / Save / Cancel) sit in a row */
 li button { margin-right: 8px; margin-top: 4px; }
 
-/* Delete button — give it the danger look. Add className="btn-danger" */
 .btn-danger { background: var(--danger); }
 .btn-danger:hover { background: #963a26; }
 
