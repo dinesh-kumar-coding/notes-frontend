@@ -1,0 +1,214 @@
+/* ============================================================
+   NOTES APP — Vibe: WARM & COZY (notebook / paper)
+   Soft cream paper, warm browns, a calm handwritten feel.
+   Replace your notes app frontend's App.css with this file.
+   ============================================================ */
+
+:root {
+  --paper: #fbf6ec;          /* page background — warm cream */
+  --card: #fffdf8;           /* note cards — slightly lighter cream */
+  --ink: #3d3528;            /* main text — warm dark brown */
+  --ink-soft: #8a7d68;       /* secondary text */
+  --line: #e8ddc9;           /* subtle borders / ruled lines */
+  --accent: #c2703d;         /* warm terracotta accent */
+  --accent-dark: #a85a2c;
+  --accent-soft: #f6e9dc;    /* light accent wash */
+  --danger: #b5462f;
+  --danger-soft: #f6e0d8;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(61, 53, 40, 0.04), 0 6px 20px rgba(61, 53, 40, 0.07);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Georgia", "Iowan Old Style", "Palatino", serif;
+  background-color: var(--paper);
+  /* faint ruled-paper lines for the notebook feel */
+  background-image: repeating-linear-gradient(
+    var(--paper) 0px,
+    var(--paper) 31px,
+    var(--line) 32px
+  );
+  background-attachment: fixed;
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ---------- Headings ---------- */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--ink);
+}
+h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+/* ============================================================
+   AUTH PAGE (login / signup) — a centered paper card
+   Add className="auth-card" to the <form> in AuthPage.
+   ============================================================ */
+.auth-card {
+  max-width: 380px;
+  margin: 8vh auto 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.auth-card p {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* ---------- Inputs & textareas (shared) ---------- */
+input,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+input::placeholder,
+textarea::placeholder { color: var(--ink-soft); }
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* ---------- Buttons ---------- */
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+button:hover { background: var(--accent-dark); }
+button:active { transform: translateY(1px); }
+
+/* A secondary / text-style button (for toggle + cancel) — add className="btn-text" */
+.btn-text {
+  background: transparent;
+  color: var(--accent);
+  padding: 4px 6px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.btn-text:hover { background: transparent; color: var(--accent-dark); }
+
+/* Error message — add className="error-msg" to the red <p> */
+.error-msg {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ============================================================
+   NOTES PAGE
+   ============================================================ */
+/* Header bar — wrap the <header> content; it has h1 + logout */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--line);
+}
+
+/* The "Add note" form — add className="note-form" to the <form> in NoteForm */
+.note-form {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---------- Notes list ---------- */
+ul { list-style: none; }
+
+li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  /* a little "pinned paper" accent stripe on the left */
+  border-left: 4px solid var(--accent);
+}
+li p { color: var(--ink-soft); margin-bottom: 12px; }
+
+/* Buttons inside a note (Edit / Delete / Save / Cancel) sit in a row */
+li button { margin-right: 8px; margin-top: 4px; }
+
+/* Delete button — give it the danger look. Add className="btn-danger" */
+.btn-danger { background: var(--danger); }
+.btn-danger:hover { background: #963a26; }
+
+/* Empty state message */
+.empty-msg {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  padding: 32px;
+  font-style: italic;
+}
+
+/* Loading message */
+.loading-msg {
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 40px;
+  font-size: 1.1rem;
+}
